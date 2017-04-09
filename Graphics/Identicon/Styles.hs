@@ -40,7 +40,7 @@ type family NearestByte n where
   NearestByte 7 = 1
   NearestByte n = 1 + NearestByte (n-8)
 
-generalizedGithubStyle :: (KnownNat n, Varargs [Word8] Layer (ToLayer (NecessaryBytes n)))
+generalizedGithubStyle :: (KnownNat n, Polyvariadic [Word8] Layer (ToLayer (NecessaryBytes n)))
                        => Proxy n -> Implementation (GeneralizedGithub n)
 generalizedGithubStyle proxy = Identicon :+ applyToAccumulatedArgs maskingSquares :+ solidColorLayer
   where
