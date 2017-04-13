@@ -27,18 +27,12 @@ type NecessaryBytes sideColumns = NearestByte (Cells sideColumns)
 type Cells sideColumns = (sideColumns+sideColumns+1)*(sideColumns+1)
 
 -- | Raise the number of bits to the nearest byte
-type family NearestByte n where
-  --NearestByte bits = if bits `mod` 8 == 0 then bits `div` 8 --MAYBE calculate the number of bits somehow?
-  --                   else nearestByte (bits+1)
-  NearestByte 0 = 0
-  NearestByte 1 = 1
-  NearestByte 2 = 1
-  NearestByte 3 = 1
-  NearestByte 4 = 1
-  NearestByte 5 = 1
-  NearestByte 6 = 1
-  NearestByte 7 = 1
-  NearestByte n = 1 + NearestByte (n-8)
+type NearestByte n = NearestByte' (CmpNat 8 n) n
+
+type family NearestByte' c n where
+  NearestByte' _   0 = 0
+  NearestByte' 'GT _ = 1
+  NearestByte' _   n = 1 + NearestByte (n-8)
 
 generalizedGithubStyle :: (KnownNat n, Polyvariadic [Word8] Layer (ToLayer (NecessaryBytes n)))
                        => Proxy n -> Implementation (GeneralizedGithub n)
