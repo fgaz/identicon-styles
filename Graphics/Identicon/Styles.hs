@@ -36,7 +36,7 @@ type family NearestByte' c n where
 
 generalizedGithubStyle :: (KnownNat n, Polyvariadic [Word8] Layer (ToLayer (NecessaryBytes n)))
                        => Proxy n -> Implementation (GeneralizedGithub n)
-generalizedGithubStyle proxy = Identicon :+ applyToAccumulatedArgs maskingSquares :+ solidColorLayer
+generalizedGithubStyle proxy = Identicon :+ polyvariadic mempty maskingSquares :+ solidColorLayer
   where
     maskingSquares :: [Word8] -> Layer
     maskingSquares xs = foldMap makeMaskingSquare
