@@ -13,14 +13,14 @@ genIcon
   -> Int               -- ^ Desired height
   -> ByteString        -- ^ Input (some sort of hash)
   -> Maybe (Image PixelRGB8) -- ^ Resulting image
-genIcon = renderIdenticon (Proxy :: Proxy (GeneralizedGithub 3))
-        $ generalizedGithubStyle (Proxy :: Proxy 3)
+genIcon = renderIdenticon (Proxy :: Proxy (GeneralizedGithub 2))
+        $ generalizedGithubStyle (Proxy :: Proxy 2)
 
 
 main :: IO ()
 main = do
-  let h = hash "fgaz"
-  let Just img = genIcon 800 800 h
+  let h = hash "identicon"
+  let Just img = genIcon 200 200 h
   putStrLn "salvando..."
   writePng "image.png" img
 
