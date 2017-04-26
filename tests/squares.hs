@@ -5,8 +5,10 @@ import Graphics.Identicon
 import Graphics.Identicon.Styles
 import Crypto.Hash.MD5
 import Codec.Picture
+import Data.ByteString.Lazy (toStrict)
 import Data.ByteString (ByteString)
 import Data.Proxy
+import Control.Exception.Base (assert)
 
 genIcon
   :: Int               -- ^ Desired width
@@ -21,6 +23,6 @@ main :: IO ()
 main = do
   let h = hash "identicon"
   let Just img = genIcon 200 200 h
-  putStrLn "salvando..."
-  writePng "image.png" img
+  let ih = hash $ toStrict $ encodeBitmap img
+  assert (ih == "\251\173\EM\135\209sH\136\192\234=\DC4\214\255e\195") $ return ()
 

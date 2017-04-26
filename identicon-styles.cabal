@@ -23,3 +23,16 @@ library
                      , polyvariadic >=0.2 && <0.4
   -- hs-source-dirs:      
   default-language:    Haskell2010
+
+test-suite squares
+  type:            exitcode-stdio-1.0
+  main-is:         squares.hs
+  hs-source-dirs:  tests
+  build-depends:   base
+                 , JuicyPixels
+                 , identicon
+                 , identicon-styles
+                 , bytestring
+                 , cryptohash
+  default-language:    Haskell2010
+
