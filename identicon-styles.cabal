@@ -17,7 +17,7 @@ library
   exposed-modules:     Graphics.Identicon.Styles
   -- other-modules:       
   other-extensions:    DataKinds, TypeOperators, TypeFamilies, UndecidableInstances, FlexibleContexts
-  build-depends:       base >=4.9 && <4.10
+  build-depends:       base >=4.7 && <4.10
                      , identicon >=0.2 && <0.3
                      , JuicyPixels >=3.2 && <3.3
                      , polyvariadic >=0.2 && <0.4
