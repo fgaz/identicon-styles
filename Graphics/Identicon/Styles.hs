@@ -3,6 +3,7 @@
 {-# LANGUAGE TypeFamilies         #-}
 {-# LANGUAGE UndecidableInstances #-}
 {-# LANGUAGE FlexibleContexts     #-}
+{-# LANGUAGE CPP                  #-}
 
 module Graphics.Identicon.Styles where
 
@@ -15,6 +16,11 @@ import GHC.TypeLits
 import Data.Word (Word8)
 
 import Data.Function.Polyvariadic
+
+#if !MIN_VERSION_base(4,8,0)
+import Data.Foldable
+import Data.Monoid
+#endif
 
 
 type GeneralizedGithub n = Identicon (3 + NecessaryBytes n) :+ Consumer (NecessaryBytes n) :+ Consumer 3
