@@ -30,9 +30,9 @@ type Cells sideColumns = (sideColumns+sideColumns+1)*(sideColumns+1)
 type NearestByte n = NearestByte' (CmpNat 8 n) n
 
 type family NearestByte' c n where
-  NearestByte' _   0 = 0
-  NearestByte' 'GT _ = 1
-  NearestByte' _   n = 1 + NearestByte (n-8)
+  NearestByte' comp 0 = 0
+  NearestByte' 'GT  n = 1
+  NearestByte' comp n = 1 + NearestByte (n-8)
 
 generalizedGithubStyle :: (KnownNat n, Polyvariadic [Word8] Layer (ToLayer (NecessaryBytes n)))
                        => Proxy n -> Implementation (GeneralizedGithub n)
