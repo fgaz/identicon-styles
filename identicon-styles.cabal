@@ -13,6 +13,10 @@ build-type:          Simple
 extra-source-files:  ChangeLog.md
 cabal-version:       >=1.10
 
+source-repository head
+  type:     git
+  location: git://github.com/fgaz/identicon-styles.git
+
 library
   exposed-modules:     Graphics.Identicon.Styles
   -- other-modules:       
