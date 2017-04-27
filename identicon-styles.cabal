@@ -23,6 +23,7 @@ library
                      , polyvariadic >=0.2 && <0.4
   -- hs-source-dirs:      
   default-language:    Haskell2010
+  ghc-options:         -O2 -Wall
 
 test-suite squares
   type:            exitcode-stdio-1.0
