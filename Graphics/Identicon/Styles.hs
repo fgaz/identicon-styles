@@ -23,7 +23,7 @@ import Data.Monoid
 #endif
 
 
-type GeneralizedGithub n = Identicon (3 + NecessaryBytes n) :+ Consumer (NecessaryBytes n) :+ Consumer 3
+type Squares n = Identicon (3 + NecessaryBytes n) :+ Consumer (NecessaryBytes n) :+ Consumer 3
 
 -- | Bytes necessary to generate the given number of columns on one side
 type NecessaryBytes sideColumns = NearestByte (Cells sideColumns)
@@ -40,9 +40,9 @@ type family NearestByte' c n where
   NearestByte' 'GT  n = 1
   NearestByte' comp n = 1 + NearestByte (n-8)
 
-generalizedGithubStyle :: (KnownNat n, Polyvariadic [Word8] Layer (ToLayer (NecessaryBytes n)))
-                       => Proxy n -> Implementation (GeneralizedGithub n)
-generalizedGithubStyle proxy = Identicon :+ polyvariadic mempty maskingSquares :+ solidColorLayer
+squares :: (KnownNat n, Polyvariadic [Word8] Layer (ToLayer (NecessaryBytes n)))
+        => Proxy n -> Implementation (Squares n)
+squares proxy = Identicon :+ polyvariadic mempty maskingSquares :+ solidColorLayer
   where
     maskingSquares :: [Word8] -> Layer
     maskingSquares xs = foldMap makeMaskingSquare
