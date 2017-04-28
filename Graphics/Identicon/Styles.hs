@@ -67,23 +67,3 @@ filterOn xs conditions = fmap fst $ filter snd $ zip xs conditions
 extractBits :: (Bits bits, FiniteBits bits) => bits -> [Bool]
 extractBits bits = fmap (testBit bits) [0..finiteBitSize bits -1]
 
-
--- Specific version here
-{-
-type Github = Identicon 5 :+ Consumer 2 :+ Consumer 3
-
-githubStyle :: Implementation Github
-githubStyle = Identicon :+ maskingSquares :+ colorBackground
-  where
-    maskingSquares x1 x2 = foldMap makeMaskingSquare
-                         $ filterOn positions
-                         $ foldMap extractBits [x1,x2]
-    makeMaskingSquare = foldMap (\n -> onGrid gridSide gridSide n $ color white)
-    positions = foldMap columnCellToRowCells centralColumnCells -- on which cells each bit will act
-    columnCellToRowCells n = [n] : fmap (\offset -> [n-offset, n+offset]) [1..sqn]
-    centralColumnCells = [sqn,gridSide+sqn..gridSide^2 -sqn -1]
-    colorBackground r g b = color (PixelRGB8 r g b)
-    sqn=2
-    gridSide = sqn * 2 + 1
--}
-
