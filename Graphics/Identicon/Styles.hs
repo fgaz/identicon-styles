@@ -5,6 +5,17 @@
 {-# LANGUAGE FlexibleContexts     #-}
 {-# LANGUAGE CPP                  #-}
 
+-- |
+-- Module      :  Graphics.Identicon.Styles
+-- Copyright   :  (c) Francesco Gazzetta 2017
+-- License     :  BSD3 (see the file LICENSE)
+--
+-- Maintainer  :  francygazz@gmail.org
+-- Stability   :  experimental
+-- Portability :  portable
+--
+-- Some styles for the identicon package.
+
 module Graphics.Identicon.Styles
 ( Squares
 , squares
@@ -26,7 +37,10 @@ import Data.Foldable
 import Data.Monoid
 #endif
 
-
+-- | A grid of colored squares on a white background, with vertical symmetry.
+-- The argument @n@ represents the number of columns on one side of the simmetry,
+-- excluding the central column. For example @Squares 3@ produces a 7x7 square (5=3*2+1).
+-- To have a github-like style, use @Squares 2@
 type Squares n = Identicon (3 + NecessaryBytes n) :+ Consumer (NecessaryBytes n) :+ Consumer 3
 
 -- | Bytes necessary to generate the given number of columns on one side
@@ -44,8 +58,10 @@ type family NearestByte' c n where
   NearestByte' 'GT  n = 1
   NearestByte' comp n = 1 + NearestByte (n-8)
 
+-- | Implementation for the 'Squares' style. See 'Squares' for the meaning of @n@.
 squares :: (KnownNat n, Polyvariadic [Word8] Layer (ToLayer (NecessaryBytes n)))
-        => Proxy n -> Implementation (Squares n)
+        => Proxy n
+        -> Implementation (Squares n)
 squares proxy = Identicon :+ polyvariadic mempty maskingSquares :+ solidColorLayer
   where
     maskingSquares :: [Word8] -> Layer
