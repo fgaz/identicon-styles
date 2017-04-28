@@ -5,7 +5,11 @@
 {-# LANGUAGE FlexibleContexts     #-}
 {-# LANGUAGE CPP                  #-}
 
-module Graphics.Identicon.Styles where
+module Graphics.Identicon.Styles
+( Squares
+, squares
+)
+where
 
 import Graphics.Identicon
 import Graphics.Identicon.Primitive
