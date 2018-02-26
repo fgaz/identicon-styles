@@ -2,7 +2,7 @@
 {-# LANGUAGE DataKinds            #-}
 
 import Graphics.Identicon
-import qualified Graphics.Identicon.Styles as Styles
+import Graphics.Identicon.Styles.Squares
 import Crypto.Hash.MD5
 import Codec.Picture
 import Data.ByteString.Lazy (toStrict)
@@ -15,8 +15,8 @@ genIcon
   -> Int               -- ^ Desired height
   -> ByteString        -- ^ Input (some sort of hash)
   -> Maybe (Image PixelRGB8) -- ^ Resulting image
-genIcon = renderIdenticon (Proxy :: Proxy (Styles.Squares 2))
-        $ Styles.squares (Proxy :: Proxy 2)
+genIcon = renderIdenticon (Proxy :: Proxy (Squares 2))
+        $ squares (Proxy :: Proxy 2)
 
 
 main :: IO ()

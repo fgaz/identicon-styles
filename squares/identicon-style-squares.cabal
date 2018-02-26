@@ -1,6 +1,6 @@
-name:                identicon-styles
+name:                identicon-style-squares
 version:             0.1.0.0
-synopsis:            Styles for the identicon package
+synopsis:            Squares style for the identicon package
 -- description:         
 homepage:            https://github.com/fgaz/identicon-styles
 license:             BSD3
@@ -18,7 +18,7 @@ source-repository head
   location: git://github.com/fgaz/identicon-styles.git
 
 library
-  exposed-modules:     Graphics.Identicon.Styles
+  exposed-modules:     Graphics.Identicon.Styles.Squares
   -- other-modules:       
   other-extensions:    DataKinds, TypeOperators, TypeFamilies, UndecidableInstances, FlexibleContexts
   build-depends:       base >=4.7 && <4.11
@@ -36,7 +36,7 @@ test-suite squares
   build-depends:   base
                  , JuicyPixels
                  , identicon
-                 , identicon-styles
+                 , identicon-style-squares
                  , bytestring
                  , cryptohash
   default-language:    Haskell2010

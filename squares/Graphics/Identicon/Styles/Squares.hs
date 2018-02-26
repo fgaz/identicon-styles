@@ -6,7 +6,7 @@
 {-# LANGUAGE CPP                  #-}
 
 -- |
--- Module      :  Graphics.Identicon.Styles
+-- Module      :  Graphics.Identicon.Styles.Squares
 -- Copyright   :  (c) Francesco Gazzetta 2017
 -- License     :  BSD3 (see the file LICENSE)
 --
@@ -14,9 +14,9 @@
 -- Stability   :  experimental
 -- Portability :  portable
 --
--- Some styles for the identicon package.
+-- Squares style for the identicon package.
 
-module Graphics.Identicon.Styles
+module Graphics.Identicon.Styles.Squares
 ( Squares
 , squares
 )
