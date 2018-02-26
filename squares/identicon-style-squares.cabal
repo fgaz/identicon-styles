@@ -1,7 +1,9 @@
 name:                identicon-style-squares
 version:             0.1.0.0
 synopsis:            Squares style for the identicon package
--- description:         
+description:         An identicon style with colored squares, similar to the
+                     github default avatars. The number of square in a single
+                     identicon can be configured.
 homepage:            https://github.com/fgaz/identicon-styles
 license:             BSD3
 license-file:        LICENSE
