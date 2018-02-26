@@ -8,7 +8,7 @@
 
 Squares style (github-like), with n = 2:
 
-![squares style](example-squares.png)
+![squares style](squares/example-squares.png)
 
 Shapes style (gravatar-like):
 
