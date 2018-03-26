@@ -4,13 +4,15 @@
 
 [![Build Status](https://travis-ci.org/fgaz/identicon-styles.svg?branch=master)](https://travis-ci.org/fgaz/identicon-styles)
 
-## Examples
+## Squares style (github-like)
 
-Squares style (github-like), with n = 2:
+[![Hackage](https://img.shields.io/hackage/v/identicon-style-squares.svg)](https://hackage.haskell.org/package/identicon-style-squares)
+
+Example with n = 2:
 
 ![squares style](squares/example-squares.png)
 
-Shapes style (gravatar-like):
+## Shapes style (gravatar-like)
 
 `TODO`
 
