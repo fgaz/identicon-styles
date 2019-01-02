@@ -27,7 +27,7 @@ import Graphics.Identicon.Primitive
 import Codec.Picture (PixelRGB8 (PixelRGB8))
 import Data.Proxy (Proxy)
 import Data.Bits (Bits, FiniteBits, testBit, finiteBitSize)
-import GHC.TypeLits
+import GHC.TypeLits as T
 import Data.Word (Word8)
 
 import Data.Function.Polyvariadic
@@ -48,7 +48,7 @@ type NecessaryBytes sideColumns = NearestByte (Cells sideColumns)
 
 -- | Calculate the total number of cells in the grid from the number
 --   of columns on one side
-type Cells sideColumns = (sideColumns+sideColumns+1)*(sideColumns+1)
+type Cells sideColumns = ((sideColumns T.* 2) + 1) T.* (sideColumns + 1)
 
 -- | Raise the number of bits to the nearest byte
 type NearestByte n = NearestByte' (CmpNat 8 n) n
