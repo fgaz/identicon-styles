@@ -8,7 +8,7 @@ homepage:            https://github.com/fgaz/identicon-styles
 license:             BSD3
 license-file:        LICENSE
 author:              Francesco Gazzetta
-maintainer:          francygazz@gmail.com
+maintainer:          Francesco Gazzetta <fgaz@fgaz.me>
 -- copyright:           
 category:            Graphics
 build-type:          Simple
