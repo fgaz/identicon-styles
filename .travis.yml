@@ -9,18 +9,18 @@ cache:
 
 matrix:
   include:
-    - env: CABALVER=2.4 GHCVER=7.8.4
-      addons: {apt: {packages: [cabal-install-2.4,ghc-7.8.4,],sources: [hvr-ghc]}}
-    - env: CABALVER=2.4 GHCVER=7.10.3
-      addons: {apt: {packages: [cabal-install-2.4,ghc-7.10.3],sources: [hvr-ghc]}}
-    - env: CABALVER=2.4 GHCVER=8.0.2
-      addons: {apt: {packages: [cabal-install-2.4,ghc-8.0.2], sources: [hvr-ghc]}}
-    - env: CABALVER=2.4 GHCVER=8.2.2
-      addons: {apt: {packages: [cabal-install-2.4,ghc-8.2.2], sources: [hvr-ghc]}}
-    - env: CABALVER=2.4 GHCVER=8.4.4
-      addons: {apt: {packages: [cabal-install-2.4,ghc-8.4.4], sources: [hvr-ghc]}}
-    - env: CABALVER=2.4 GHCVER=8.6.3
-      addons: {apt: {packages: [cabal-install-2.4,ghc-8.6.3], sources: [hvr-ghc]}}
+    - env: CABALVER=3.2 GHCVER=7.8.4
+      addons: {apt: {packages: [cabal-install-3.2,ghc-7.8.4,],sources: [hvr-ghc]}}
+    - env: CABALVER=3.2 GHCVER=7.10.3
+      addons: {apt: {packages: [cabal-install-3.2,ghc-7.10.3],sources: [hvr-ghc]}}
+    - env: CABALVER=3.2 GHCVER=8.0.2
+      addons: {apt: {packages: [cabal-install-3.2,ghc-8.0.2], sources: [hvr-ghc]}}
+    - env: CABALVER=3.2 GHCVER=8.2.2
+      addons: {apt: {packages: [cabal-install-3.2,ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: CABALVER=3.2 GHCVER=8.4.4
+      addons: {apt: {packages: [cabal-install-3.2,ghc-8.4.4], sources: [hvr-ghc]}}
+    - env: CABALVER=3.2 GHCVER=8.6.3
+      addons: {apt: {packages: [cabal-install-3.2,ghc-8.6.3], sources: [hvr-ghc]}}
 
 before_install:
   - export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
@@ -31,6 +31,6 @@ install:
  - travis_retry cabal update
 
 script:
- - cabal new-build all
- - cabal new-test all
+ - cabal build all
+ - cabal test all
 
